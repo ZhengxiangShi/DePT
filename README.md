@@ -1,27 +1,28 @@
 # DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning
-This repository provides the code for the paper titled **[DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning]()**, making the integration of our code contributions into other projects more accessible.
+This repository provides the code for the paper titled **[DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](https://arxiv.org/abs/2309.05173)**, making the integration of our code contributions into other projects more accessible.
 
 <div align="center">
 
-  [![arxiv-link](https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red)]()
+  [![arxiv-link](https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red)][()](https://arxiv.org/abs/2309.05173)
   [![made-with-pytorch](https://img.shields.io/badge/Made%20with-PyTorch-brightgreen)](https://pytorch.org/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
 
 <p align="center">
-  <img src="asset/ours.png" width="700"></a>
+  <img src="asset/ours.png" width="550"></a>
   <br />
 </p>
 
 ## Quick Links#
-- [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](#DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning)
-  - [Quick Links](#quick-links)
+- [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](#dept-decomposed-prompt-tuning-for-parameter-efficient-fine-tuning)
+  - [Quick Links#](#quick-links)
   - [Overview](#overview)
   - [1. Requirements and Installation](#1-requirements-and-installation)
   - [2. Prepare the datasets](#2-prepare-the-datasets)
-  - [3. Run experiments](#3-main-experiments)
+  - [3. Main Experiments](#3-main-experiments)
   - [Bugs or questions?](#bugs-or-questions)
   - [Citation](#citation)
+  - [Acknowledgement](#acknowledgement)
 
 
 ## Overview

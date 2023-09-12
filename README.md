@@ -37,7 +37,7 @@ To run the prompt-based or cls-based fine-tuning, you need to install the follow
 - Pytorch
 
 ## 2. Prepare the datasets
-We use the following NLP datasets in our experiments: [GLUE](https://huggingface.co/datasets/glue), [SuperGLUE](https://huggingface.co/datasets/super_glue), [MRQA 2019 Shared Task](https://huggingface.co/lucadiliello), [WinoGrande](https://huggingface.co/datasets/winogrande), [Yelp-2](https://huggingface.co/datasets/yelp_polarity), [SciTail](https://huggingface.co/datasets/scitail/viewer/snli_format/train) and [PAWS-Wiki](https://huggingface.co/datasets/paws). All these datasets are available in the [Huggingface Datasets](https://huggingface.co/datasets) and can be downloaded automatically. Please refe to the file `src/tasks.py` for the details of the datasets. 
+We use the following NLP datasets in our experiments: [GLUE](https://huggingface.co/datasets/glue), [SuperGLUE](https://huggingface.co/datasets/super_glue), [MRQA 2019 Shared Task](https://huggingface.co/lucadiliello), [WinoGrande](https://huggingface.co/datasets/winogrande), [Yelp-2](https://huggingface.co/datasets/yelp_polarity), [SciTail](https://huggingface.co/datasets/scitail/viewer/snli_format/train) and [PAWS-Wiki](https://huggingface.co/datasets/paws). All these datasets are available in the [Huggingface Datasets](https://huggingface.co/datasets) and can be downloaded automatically. Please refer to the file `src/tasks.py` for the details of the datasets. 
 
 ## 3. Run Experiments
 We provide the scripts to reproduce the main experiments in our paper.

@@ -19,7 +19,7 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
   - [Overview](#overview)
   - [1. Requirements and Installation](#1-requirements-and-installation)
   - [2. Prepare the datasets](#2-prepare-the-datasets)
-  - [3. Main Experiments](#3-main-experiments)
+  - [3. Run Experiments](#3-run-experiments)
   - [Bugs or questions?](#bugs-or-questions)
   - [Citation](#citation)
   - [Acknowledgement](#acknowledgement)
@@ -39,7 +39,7 @@ To run the prompt-based or cls-based fine-tuning, you need to install the follow
 ## 2. Prepare the datasets
 We use the following NLP datasets in our experiments: [GLUE](https://huggingface.co/datasets/glue), [SuperGLUE](https://huggingface.co/datasets/super_glue), [MRQA 2019 Shared Task](https://huggingface.co/lucadiliello), [WinoGrande](https://huggingface.co/datasets/winogrande), [Yelp-2](https://huggingface.co/datasets/yelp_polarity), [SciTail](https://huggingface.co/datasets/scitail/viewer/snli_format/train) and [PAWS-Wiki](https://huggingface.co/datasets/paws). All these datasets are available in the [Huggingface Datasets](https://huggingface.co/datasets) and can be downloaded automatically. Please refe to the file `src/tasks.py` for the details of the datasets. 
 
-## 3. Main Experiments
+## 3. Run Experiments
 We provide the scripts to reproduce the main experiments in our paper.
 For example, you can run the following script to reproduce the results of DePT on the GLUE dataset. The `PREFIX_LENGTH` represents the length of the soft prompt `m` in the paper. The `R` represents the rank of low-rank matrices `r` in the paper.
 ```sh

@@ -100,7 +100,7 @@ year = {2023},
 
 ## Acknowledgement
 This repository is built upon the following repositories:
+- [PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)
+- [pretraining-or-self-training](https://github.com/amzn/pretraining-or-self-training)
 - [Huggingface Transformers](https://github.com/huggingface/transformers)
 - [Huggingface PEFT](https://github.com/huggingface/peft)
-- [pretraining-or-self-training](https://github.com/amzn/pretraining-or-self-training)
-- [PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)

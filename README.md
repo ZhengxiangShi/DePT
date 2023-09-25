@@ -13,6 +13,8 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
   <br />
 </p>
 
+- **<span style="color:red;">[:loudspeaker: News - 21 Sep 2023]</span>** Check out our work at NeurIPS 2023 **[Don’t Stop Pretraining? Make Prompt-based Fine-tuning Powerful Learner](https://arxiv.org/abs/2305.01711)** and the code at **[PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)**.
+
 ## Quick Links#
 - [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](#dept-decomposed-prompt-tuning-for-parameter-efficient-fine-tuning)
   - [Quick Links#](#quick-links)

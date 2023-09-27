@@ -25,6 +25,7 @@ from transformers import (
     T5ForConditionalGeneration,
     RobertaForSequenceClassification,
     GPT2LMHeadModel,
+    LlamaForCausalLM,
     set_seed,
     Trainer
 )
@@ -245,6 +246,10 @@ class DynamicTrainingArguments(Seq2SeqTrainingArguments):
         default=True,
         metadata={"help": "Whether to load the lora embedding B, which is initialized from zeros."},
     )
+    quantization: bool = field(
+        default=False,
+        metadata={"help": "Whether to quantize the model."}
+    )
 
 def main():
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, DynamicTrainingArguments))
@@ -287,7 +292,7 @@ def main():
 
     # Log on each process the small summary:
     logger.warning(
-        f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
+        f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}" 
         + f"distributed training: {bool(training_args.local_rank != -1)}, 16-bits training: {training_args.fp16}"
     )
     logger.info(f"Training/evaluation parameters {training_args}")
@@ -428,7 +433,7 @@ def main():
         task_type = TaskType.SEQ_2_SEQ_LM
         preprocess_function = seq2seq_preprocess_function
         metrics_fn = compute_metrics_seq2seq
-    elif any(x in model_args.model_name_or_path for x in ["gpt"]):
+    elif any(x in model_args.model_name_or_path for x in ["gpt", "llama"]):
         logger.info(f"\n\nLoading decoder model from {model_args.model_name_or_path}.\n\n")
         task_type = TaskType.CAUSAL_LM
         preprocess_function = decoder_preprocess_function
@@ -446,11 +451,35 @@ def main():
             model = AutoModelForSequenceClassification.from_pretrained(peft_config.base_model_name_or_path)
         elif task_type == TaskType.SEQ_2_SEQ_LM:
             model = AutoModelForSeq2SeqLM.from_pretrained(peft_config.base_model_name_or_path)
-        elif task_type == TaskType.CAUSAL_LM:
+        elif task_type == TaskType.CAUSAL_LM and "gpt" in model_args.model_name_or_path:
             model = AutoModelForCausalLM.from_pretrained(peft_config.base_model_name_or_path)
+        elif task_type == TaskType.CAUSAL_LM and "llama" in model_args.model_name_or_path:
+            model = LlamaForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                return_dict=True,
+                load_in_8bit=training_args.quantization,
+                device_map="auto",
+                low_cpu_mem_usage=True,
+            )
+            model_args.hidden_size = model.config.hidden_size
         model = PeftModel.from_pretrained(model, model_args.peft_model_id)
         model.peft_config[model.active_adapter].inference_mode = False
     else:
+        if task_type == TaskType.SEQ_CLS:
+            model = AutoModelForSequenceClassification.from_pretrained(model_args.model_name_or_path)
+        elif task_type == TaskType.SEQ_2_SEQ_LM:
+            model = AutoModelForSeq2SeqLM.from_pretrained(model_args.model_name_or_path)
+        elif task_type == TaskType.CAUSAL_LM and "gpt" in model_args.model_name_or_path:
+            model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path)
+        elif task_type == TaskType.CAUSAL_LM and "llama" in model_args.model_name_or_path:
+            model = LlamaForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                return_dict=True,
+                load_in_8bit=training_args.quantization,
+                device_map="auto",
+                low_cpu_mem_usage=True,
+            )
+        model_args.hidden_size = model.config.hidden_size
         if model_args.peft_type == "PROMPT_TUNING":
             logger.info(f"\n\nLoading model for prompt tuning.\n\n")
             peft_config = PromptTuningConfig(
@@ -475,12 +504,6 @@ def main():
                 max_length=data_args.max_seq_length,
                 save_lora_embeddings=training_args.save_lora_embeddings,
             )
-        if task_type == TaskType.SEQ_CLS:
-            model = AutoModelForSequenceClassification.from_pretrained(model_args.model_name_or_path)
-        elif task_type == TaskType.SEQ_2_SEQ_LM:
-            model = AutoModelForSeq2SeqLM.from_pretrained(model_args.model_name_or_path)
-        elif task_type == TaskType.CAUSAL_LM:
-            model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path)
         model = get_peft_model(model, peft_config)
     model.print_trainable_parameters()
     logger.info(model)

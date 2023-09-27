@@ -828,8 +828,8 @@ class PeftModelForCausalLM(PeftModel):
             if inputs_embeds is None:
                 batch_size = input_ids.shape[0]
                 inputs_embeds = self.word_embeddings(input_ids)
-                lora_embedding_A = self.prompt_encoder[self.active_adapter].lora_embedding_A
-                lora_embedding_B = self.prompt_encoder[self.active_adapter].lora_embedding_B
+                lora_embedding_A = self.prompt_encoder[self.active_adapter].lora_embedding_A.to(inputs_embeds.device)
+                lora_embedding_B = self.prompt_encoder[self.active_adapter].lora_embedding_B.to(inputs_embeds.device)
                 scaling = self.prompt_encoder[self.active_adapter].scaling
                 inputs_embeds += scaling * (lora_embedding_A @ lora_embedding_B).repeat(batch_size, 1, 1)
             if labels is not None:
@@ -932,8 +932,8 @@ class PeftModelForCausalLM(PeftModel):
                     if peft_config.peft_type == PeftType.PROMPT_TUNING_LORA: # (zshi)
                         batch_size = model_kwargs["input_ids"].shape[0]
                         inputs_embeds = self.word_embeddings(model_kwargs["input_ids"])
-                        lora_embedding_A = self.prompt_encoder[self.active_adapter].lora_embedding_A
-                        lora_embedding_B = self.prompt_encoder[self.active_adapter].lora_embedding_B
+                        lora_embedding_A = self.prompt_encoder[self.active_adapter].lora_embedding_A.to(inputs_embeds.device)
+                        lora_embedding_B = self.prompt_encoder[self.active_adapter].lora_embedding_B.to(inputs_embeds.device)
                         scaling = self.prompt_encoder[self.active_adapter].scaling
                         inputs_embeds += scaling * (lora_embedding_A @ lora_embedding_B).repeat(batch_size, 1, 1)
 

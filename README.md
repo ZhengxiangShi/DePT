@@ -13,6 +13,7 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
   <br />
 </p>
 
+- **<span style="color:red;">[:loudspeaker: News - 26 Sep 2023]</span>** We now support Llama-2 Models. Please set `MODEL` to your local Llama-2 path to run the experiments.
 - **<span style="color:red;">[:loudspeaker: News - 21 Sep 2023]</span>** Check out our work at NeurIPS 2023 titled **[Don’t Stop Pretraining? Make Prompt-based Fine-tuning Powerful Learner](https://arxiv.org/abs/2305.01711)** and the code at **[PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)**.
 
 ## Quick Links#
@@ -28,7 +29,7 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
 
 
 ## Overview
-You can reproduce the experiments of our paper [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning]().
+You can reproduce the experiments of our paper [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](https://arxiv.org/abs/2309.05173).
 
 > **Abstract**
 > Prompt tuning (PT), where a small amount of trainable soft (continuous) prompt vectors is affixed to the input of language models (LM), has shown promising results across various tasks and models for parameter-efficient fine-tuning (PEFT). PT stands out from other PEFT approaches because it maintains competitive performance with fewer trainable parameters and does not drastically scale up its parameters as the model size expands. However, PT introduces additional soft prompt tokens, leading to longer input sequences, which significantly impacts training and inference time and memory usage due to the Transformer's quadratic complexity. Particularly concerning for Large Language Models (LLMs) that face heavy daily querying. To address this issue, we propose Decomposed Prompt Tuning (DePT), which decomposes the soft prompt into a shorter soft prompt and a pair of low-rank matrices that are then optimised with two different learning rates. This allows DePT to achieve better performance while saving over 20% memory and time costs compared to vanilla PT and its variants, without changing trainable parameter sizes. Through extensive experiments on 23 natural language processing (NLP) and vision-language (VL) tasks, we demonstrate that DePT outperforms state-of-the-art PEFT approaches, including the full fine-tuning baseline in some scenarios. Additionally, we empirically show that DEPT grows more efficient as the model size increases. Our further study reveals that DePT integrates seamlessly with parameter-efficient transfer learning in the few-shot learning setting and highlights its adaptability to various model architectures and sizes.

@@ -44,7 +44,7 @@ We use the following NLP datasets in our experiments: [GLUE](https://huggingface
 
 ## 3. Run Experiments
 We provide the scripts to reproduce the main experiments in our paper.
-For example, you can run the following script to reproduce the results of DePT on the GLUE dataset. The `PREFIX_LENGTH` represents the length of the soft prompt `m` in the paper. The `R` represents the rank of low-rank matrices `r` in the paper.
+For example, you can run the following script to reproduce the results of DePT on the GLUE dataset. The `PREFIX_LENGTH` represents the length of the soft prompt `m` in the paper. The `R` represents the rank of low-rank matrices `r` in the paper. `lr` is the learning rate for the the soft prompt, and `LORA_LR` is the learning rate for the the pair of the low-rank matrices that will be added to the frozen word embeddings.
 ```sh
 MODEL=t5-base
 MAX_LENGTH=256

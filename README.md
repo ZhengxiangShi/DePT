@@ -94,7 +94,7 @@ If you have any questions regarding the code or the paper, please feel free to r
 ```
 @article{shi2023dept,
 title = {DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning},
-author = {Shi, Zhengxaing and Lipani, Aldo},
+author = {Shi, Zhengxiang and Lipani, Aldo},
 journal = {ArXiv},
 url = {http://arxiv.org/abs/2309.05173},
 year = {2023},

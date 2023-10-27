@@ -16,9 +16,9 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
 - **<span style="color:red;">[:loudspeaker: News - 26 Sep 2023]</span>** We now support Llama-2 Models. Please set `MODEL` to your local Llama-2 path to run the experiments.
 - **<span style="color:red;">[:loudspeaker: News - 21 Sep 2023]</span>** Check out our work at NeurIPS 2023 titled **[Don’t Stop Pretraining? Make Prompt-based Fine-tuning Powerful Learner](https://arxiv.org/abs/2305.01711)** and the code at **[PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)**.
 
-## Quick Links#
+## Quick Links
 - [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](#dept-decomposed-prompt-tuning-for-parameter-efficient-fine-tuning)
-  - [Quick Links#](#quick-links)
+  - [Quick Links](#quick-links)
   - [Overview](#overview)
   - [1. Requirements and Installation](#1-requirements-and-installation)
   - [2. Prepare the datasets](#2-prepare-the-datasets)

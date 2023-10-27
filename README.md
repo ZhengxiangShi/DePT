@@ -87,6 +87,8 @@ You can replace the `TASK_NAME` with `superglue-multirc superglue-wic superglue-
 
 Additionally, you can add the argument `--peft_model_id` to initialize the soft prompt and the pair of low-rank matrices with the pretrained prompt vectors. You can add the argument `--k_shot_examples` to specify the number of examples used for the few-shot learning.
 
+As we dicussed in the paper, one of the potential limitations of this work is the introduction of extra hyperparameters for tuning, *e.g.*, the learning rate of the low-rank matrices and training steps. This might introduce some additional computational overhead during the hyperparameter optimization phase of model training. It is important to search over all these hyperparameters to get the optimal performance. However, it is important to note that the model training process is a one-time event, while model inference is not. In this context, the efficiency benefits of our method become especially valuable. 
+
 ## Bugs or questions?
 If you have any questions regarding the code or the paper, please feel free to reach out to Zhengxiang at `zhengxiang.shi.19@ucl.ac.uk`.  If you experience any difficulties while using the code or need to report a bug, feel free to open an issue. We kindly ask that you provide detailed information about the problem to help us provide effective support.
 

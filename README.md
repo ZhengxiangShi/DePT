@@ -23,6 +23,7 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
   - [1. Requirements and Installation](#1-requirements-and-installation)
   - [2. Prepare the datasets](#2-prepare-the-datasets)
   - [3. Run Experiments](#3-run-experiments)
+  - [Limitations](#limitations)
   - [Bugs or questions?](#bugs-or-questions)
   - [Citation](#citation)
   - [Acknowledgement](#acknowledgement)
@@ -87,6 +88,7 @@ You can replace the `TASK_NAME` with `superglue-multirc superglue-wic superglue-
 
 Additionally, you can add the argument `--peft_model_id` to initialize the soft prompt and the pair of low-rank matrices with the pretrained prompt vectors. You can add the argument `--k_shot_examples` to specify the number of examples used for the few-shot learning.
 
+## Limitations
 As we dicussed in the paper, one of the potential limitations of this work is the introduction of extra hyperparameters for tuning, *e.g.*, the learning rate of the low-rank matrices and training steps. This might introduce some additional computational overhead during the hyperparameter optimization phase of model training. It is important to search over all these hyperparameters to get the optimal performance. However, it is important to note that the model training process is a one-time event, while model inference is not. In this context, the efficiency benefits of our method become especially valuable. 
 
 ## Bugs or questions?

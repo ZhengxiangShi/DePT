@@ -1,9 +1,9 @@
 # DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning
-This repository provides the code for the paper titled **[DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](https://arxiv.org/abs/2309.05173)**, making the integration of our code contributions into other projects more accessible.
+This repository provides the code for the paper titled **[DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning]()**, making the integration of our code contributions into other projects more accessible.
 
 <div align="center">
 
-  [![arxiv-link](https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red)](https://arxiv.org/abs/2309.05173)
+  [![arxiv-link](https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red)]()
   [![made-with-pytorch](https://img.shields.io/badge/Made%20with-PyTorch-brightgreen)](https://pytorch.org/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
@@ -13,8 +13,10 @@ This repository provides the code for the paper titled **[DePT: Decomposed Promp
   <br />
 </p>
 
+<!---
 - **<span style="color:red;">[:loudspeaker: News - 26 Sep 2023]</span>** We now support Llama-2 Models. Please set `MODEL` to your local Llama-2 path to run the experiments.
 - **<span style="color:red;">[:loudspeaker: News - 21 Sep 2023]</span>** Check out our work at NeurIPS 2023 titled **[Don’t Stop Pretraining? Make Prompt-based Fine-tuning Powerful Learner](https://arxiv.org/abs/2305.01711)** and the code at **[PowerfulPromptFT](https://github.com/ZhengxiangShi/PowerfulPromptFT)**.
+-->
 
 ## Quick Links
 - [DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning](#dept-decomposed-prompt-tuning-for-parameter-efficient-fine-tuning)
@@ -45,7 +47,7 @@ We use the following NLP datasets in our experiments: [GLUE](https://huggingface
 
 ## 3. Run Experiments
 We provide the scripts to reproduce the main experiments in our paper.
-For example, you can run the following script to reproduce the results of DePT on the GLUE dataset. The `PREFIX_LENGTH` represents the length of the soft prompt `m` in the paper. The `R` represents the rank of low-rank matrices `r` in the paper. `lr` is the learning rate for the the soft prompt, and `LORA_LR` is the learning rate for the the pair of the low-rank matrices that will be added to the frozen word embeddings.
+For example, you can run the following script to reproduce the results of DePT on the GLUE dataset. The `PREFIX_LENGTH` represents the length of the soft prompt `m` in the paper. The `R` represents the rank of low-rank matrices `r` in the paper. `lr` is the learning rate for the soft prompt, and `LORA_LR` is the learning rate for the the pair of the low-rank matrices that will be added to the frozen word embeddings.
 ```sh
 MODEL=t5-base
 MAX_LENGTH=256
@@ -91,6 +93,7 @@ Additionally, you can add the argument `--peft_model_id` to initialize the soft 
 ## Limitations
 As we dicussed in the paper, one of the potential limitations of this work is the introduction of extra hyperparameters for tuning, *e.g.*, the learning rate of the low-rank matrices and training steps. This might introduce some additional computational overhead during the hyperparameter optimization phase of model training. It is important to search over all these hyperparameters to get the optimal performance. For the large dataset with more than 100,000 training example, we follow the prior work ([Vu et al., 2022](https://aclanthology.org/2022.acl-long.346/)) to train our proposed method DePT with up to 300,000 steps. Training more steps is helpful for improving the performance on the large datasets. Additonally, as the length of soft prompts decreases, it may take more efforts to perform the hyperparameter search. Typically, using the soft prompt with the length `PREFIX_LENGTH` as `40` or `60` should be fine. Using parameter-efficient transfer learning (PETL) can be helpful to reduce the efforts for the hyperparameter search. However, it is important to note that the model training process is a one-time event, while the model inference is not. In this context, the efficiency benefits of DePT become especially valuable during the inference.
 
+<!---
 ## Bugs or questions?
 If you have any questions regarding the code or the paper, please feel free to reach out to Zhengxiang at `zhengxiang.shi.19@ucl.ac.uk`.  If you experience any difficulties while using the code or need to report a bug, feel free to open an issue. We kindly ask that you provide detailed information about the problem to help us provide effective support.
 
@@ -104,6 +107,7 @@ url = {http://arxiv.org/abs/2309.05173},
 year = {2023},
 }
 ```
+-->
 
 ## Acknowledgement
 This repository is built upon the following repositories:

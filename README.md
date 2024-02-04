@@ -98,12 +98,12 @@ If you have any questions regarding the code or the paper, please feel free to r
 
 ## Citation
 ```
-@article{shi2023dept,
-title = {DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning},
-author = {Shi, Zhengxiang and Lipani, Aldo},
-journal = {ArXiv},
-url = {http://arxiv.org/abs/2309.05173},
-year = {2023},
+@inproceedings{shi2024dept,
+title={DePT: Decomposed Prompt Tuning for Parameter-Efficient Fine-tuning},
+author={Zhengxiang Shi and Aldo Lipani},
+booktitle={International Conference on Learning Representations},
+year={2024},
+url={http://arxiv.org/abs/2309.05173}
 }
 ```
 

@@ -1,0 +1,7 @@
+{
+    "test_accuracy": 84.99235863474274,
+    "test_loss": 0.18278254568576813,
+    "test_runtime": 147.9021,
+    "test_samples_per_second": 66.361,
+    "test_steps_per_second": 2.076
+}

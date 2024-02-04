@@ -1,0 +1,7 @@
+{
+    "test_loss": 0.17389105260372162,
+    "test_matthews_correlation": 63.794864156250284,
+    "test_runtime": 5.9534,
+    "test_samples_per_second": 87.682,
+    "test_steps_per_second": 2.856
+}

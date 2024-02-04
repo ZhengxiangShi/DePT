@@ -1,0 +1,21 @@
+{
+  "base_model_name_or_path": "t5-base",
+  "bias": "none",
+  "hidden_size": 768,
+  "inference_mode": true,
+  "init_lora_weights": true,
+  "lora_alpha": 8,
+  "max_length": 256,
+  "num_attention_heads": 12,
+  "num_layers": 12,
+  "num_transformer_submodules": 1,
+  "num_virtual_tokens": 40,
+  "peft_type": "PROMPT_TUNING_LORA",
+  "prompt_tuning_init": "TEXT",
+  "prompt_tuning_init_text": "Classify this text is postive or not:",
+  "r": 45,
+  "revision": null,
+  "task_type": "SEQ_2_SEQ_LM",
+  "token_dim": 768,
+  "tokenizer_name_or_path": "t5-base"
+}

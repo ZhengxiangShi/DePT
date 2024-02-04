@@ -1,0 +1,8 @@
+{
+    "test_loss": 0.8773064017295837,
+    "test_pearson": 90.77330065166302,
+    "test_runtime": 8.0579,
+    "test_samples_per_second": 93.076,
+    "test_spearmanr": 90.53545729275751,
+    "test_steps_per_second": 2.978
+}

@@ -1,0 +1,8 @@
+{
+    "test_accuracy": 92.85714285714286,
+    "test_f1_multiclass": 89.5031055900621,
+    "test_loss": 0.2086024135351181,
+    "test_runtime": 0.4118,
+    "test_samples_per_second": 67.997,
+    "test_steps_per_second": 2.428
+}
